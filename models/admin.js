@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize')
 
-const { sequelize } = require('./index')
+const sequelize = require('./db')
 
 class Admin extends Model {}
 Admin.init({
