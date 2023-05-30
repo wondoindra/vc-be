@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "fvhipoej",
+    "password": "RWTRlQVTFoT5heUjdLVe-Kg5uBpCtd5r",
+    "database": "fvhipoej ",
+    "host": "tiny.db.elephantsql.com",
+    "dialect": "postgresql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "fvhipoej",
+    "password": "RWTRlQVTFoT5heUjdLVe-Kg5uBpCtd5r",
+    "database": "fvhipoej ",
+    "host": "tiny.db.elephantsql.com",
+    "dialect": "postgresql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "pvboeoqi",
+    "password": "tavLzwo_P9G_Y8QyB6WnqK2cX0m1Mp9i",
+    "database": "pvboeoqi ",
+    "host": "tiny.db.elephantsql.com",
+    "dialect": "postgresql"
   }
 }
