@@ -1,23 +1,26 @@
 {
   "development": {
-    "username": "fvhipoej",
-    "password": "RWTRlQVTFoT5heUjdLVe-Kg5uBpCtd5r",
-    "database": "fvhipoej ",
-    "host": "tiny.db.elephantsql.com",
-    "dialect": "postgresql"
+    "username": "postgres",
+    "password": "xR5drWyJKG2Q2ONaKos5",
+    "database": "railway",
+    "host": "containers-us-west-146.railway.app",
+    "dialect": "postgresql",
+    "port": "6324"
   },
   "test": {
-    "username": "fvhipoej",
-    "password": "RWTRlQVTFoT5heUjdLVe-Kg5uBpCtd5r",
-    "database": "fvhipoej ",
-    "host": "tiny.db.elephantsql.com",
-    "dialect": "postgresql"
+    "username": "postgres",
+    "password": "xR5drWyJKG2Q2ONaKos5",
+    "database": "railway",
+    "host": "containers-us-west-146.railway.app",
+    "dialect": "postgresql",
+    "port": "6324"
   },
   "production": {
-    "username": "pvboeoqi",
-    "password": "tavLzwo_P9G_Y8QyB6WnqK2cX0m1Mp9i",
-    "database": "pvboeoqi ",
-    "host": "tiny.db.elephantsql.com",
-    "dialect": "postgresql"
+    "username": "postgres",
+    "password": "xR5drWyJKG2Q2ONaKos5",
+    "database": "railway",
+    "host": "containers-us-west-146.railway.app",
+    "dialect": "postgresql",
+    "port": "6324"
   }
 }
