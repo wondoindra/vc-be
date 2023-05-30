@@ -4,9 +4,9 @@ const { sequelize } = require('./index')
 
 class Admin extends Model {}
 Admin.init({
+  name: DataTypes.STRING,
   email: DataTypes.STRING,
   password: DataTypes.STRING,
-  sessionId: DataTypes.STRING,
 }, {
   sequelize,
   modelName: 'Admin',
