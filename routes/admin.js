@@ -4,6 +4,10 @@ const router = express.Router()
 const User = require('../models/user')
 const Admin = require('../models/admin')
 
+router.get("/", (req, res) => {
+  res.send('Base admin route')
+})
+
 router.post("/login", async (req, res) => {
   const admin = await Admin.findOne({ where: { email: req.body.email, password: req.body.password } })
 
@@ -24,12 +28,15 @@ router.post("/verify/:id", async (req, res) => {
   const user = await User.findOne({ where: { id: req.params.id } })
 
   if (!user) return res.status(400).send("No user found")
-  if (user.status === 'verified') res.status(400).send("Already verified")
+  if (user.status === 'VERIFIED') res.status(400).send("Already verified")
 
-  const updatedUser = await User.update(
-    { status: 'verified' },
-    { where: { id: req.params.id } }
-  )
+  const updatedUser = await User.update({
+    status: 'VERIFIED'
+  }, {
+    where: {
+      id: req.params.id,
+    }
+  })
 
   res.send(updatedUser)
 })
