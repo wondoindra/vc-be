@@ -21,31 +21,32 @@ router.post("/login", async (req, res) => {
 })
 
 router.post("/signup", async (req, res) => {
-  console.log('signup')
-  const { name, email, password } = req.body
-  console.log(req.body)
+  // console.log('signup')
+  // const { name, email, password } = req.body
+  // console.log(req.body)
 
-  console.log('name', name)
-  console.log('email', email)
-  console.log('password', password)
+  // console.log('name', name)
+  // console.log('email', email)
+  // console.log('password', password)
 
-  if (!email || !password || !name) return res.status(400).send('Missing required fields')
+  // if (!email || !password || !name) return res.status(400).send('Missing required fields')
 
-  const existingUser = await User.findOne({ where: { email } })
-  console.log(existingUser)
-  if (existingUser) return res.status(400).send('Email used has been registered')
+  // const existingUser = await User.findOne({ where: { email } })
+  // console.log(existingUser)
+  // if (existingUser) return res.status(400).send('Email used has been registered')
 
-  const data = {
-    name,
-    email,
-    password,
-    status: 'PENDING',
-    url: '',
-    sessionId: '',
-  }
+  // const data = {
+  //   name,
+  //   email,
+  //   password,
+  //   status: 'PENDING',
+  //   url: '',
+  //   sessionId: '',
+  // }
 
-  const user = await User.create(data)
-  res.send(user)
+  // const user = await User.create(data)
+  // res.send(user)
+  res.send('success')
 })
 
 router.get("/:id", async (req, res) => {
