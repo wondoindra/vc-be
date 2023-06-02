@@ -30,9 +30,10 @@ router.post("/verify/:id", async (req, res) => {
   if (!user) return res.status(400).send("No user found")
   if (user.status === 'VERIFIED') res.status(400).send("Already verified")
 
-  const updatedUser = await User.update({
-    status: 'VERIFIED'
-  }, {
+  const updatedUser = await User.update(
+    {
+      status: 'VERIFIED'
+    }, {
     where: {
       id: req.params.id,
     }
