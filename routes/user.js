@@ -4,20 +4,23 @@ const router = express.Router()
 const User = require('../models/user')
 
 router.get("/", (req, res) => {
+  console.log('updated version')
   res.send('Base user route')
 })
 
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body
+  console.log('login')
+  // const { email, password } = req.body
 
-  if (!email || !password) return res.status(400).send('Wrong credentials')
+  // if (!email || !password) return res.status(400).send('Wrong credentials')
 
-  const user = await User.findOne({ where: { email, password } })
+  // const user = await User.findOne({ where: { email, password } })
 
-  if (!user) return res.status(400).send("Wrong credentials")
-  if (user.status !== 'VERIFIED') return res.status(400).send("User not yet approved")
+  // if (!user) return res.status(400).send("Wrong credentials")
+  // if (user.status !== 'VERIFIED') return res.status(400).send("User not yet approved")
 
-  res.send(user)
+  // res.send(user)
+  res.send('success')
 })
 
 router.post("/signup", async (req, res) => {
