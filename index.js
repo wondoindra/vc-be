@@ -21,5 +21,4 @@ app.use('/', (req, res) => {
 })
 
 app.listen(PORT)
-console.log('version updated')
 console.log(`app running port ${PORT}`)

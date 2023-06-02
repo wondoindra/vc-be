@@ -9,7 +9,11 @@ router.get("/", (req, res) => {
 })
 
 router.post("/login", async (req, res) => {
-  const admin = await Admin.findOne({ where: { email: req.body.email, password: req.body.password } })
+  const { email, password } = req.body
+
+  if (!email || !password) return res.status(400).send('Wrong credentials')
+
+  const admin = await Admin.findOne({ where: { email, password } })
 
   if (!admin) return res.status(400).send("Wrong credentials")
 

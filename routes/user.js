@@ -4,52 +4,42 @@ const router = express.Router()
 const User = require('../models/user')
 
 router.get("/", (req, res) => {
-  console.log('updated version')
   res.send('Base user route')
 })
 
 router.post("/login", async (req, res) => {
-  console.log('login')
-  // const { email, password } = req.body
+  const { email, password } = req.body
 
-  // if (!email || !password) return res.status(400).send('Wrong credentials')
+  if (!email || !password) return res.status(400).send('Wrong credentials')
 
-  // const user = await User.findOne({ where: { email, password } })
+  const user = await User.findOne({ where: { email, password } })
 
-  // if (!user) return res.status(400).send("Wrong credentials")
-  // if (user.status !== 'VERIFIED') return res.status(400).send("User not yet approved")
+  if (!user) return res.status(400).send("Wrong credentials")
+  if (user.status !== 'VERIFIED') return res.status(400).send("User not yet approved")
 
-  // res.send(user)
-  res.send('success')
+  res.send(user)
 })
 
 router.post("/signup", async (req, res) => {
-  // console.log('signup')
-  // const { name, email, password } = req.body
-  // console.log(req.body)
+  const { name, email, password } = req.body
 
-  // console.log('name', name)
-  // console.log('email', email)
-  // console.log('password', password)
+  if (!email || !password || !name) return res.status(400).send('Missing required fields')
 
-  // if (!email || !password || !name) return res.status(400).send('Missing required fields')
+  const existingUser = await User.findOne({ where: { email } })
+  console.log(existingUser)
+  if (existingUser) return res.status(400).send('Email used has been registered')
 
-  // const existingUser = await User.findOne({ where: { email } })
-  // console.log(existingUser)
-  // if (existingUser) return res.status(400).send('Email used has been registered')
+  const data = {
+    name,
+    email,
+    password,
+    status: 'PENDING',
+    url: '',
+    sessionId: '',
+  }
 
-  // const data = {
-  //   name,
-  //   email,
-  //   password,
-  //   status: 'PENDING',
-  //   url: '',
-  //   sessionId: '',
-  // }
-
-  // const user = await User.create(data)
-  // res.send(user)
-  res.send('success')
+  const user = await User.create(data)
+  res.send(user)
 })
 
 router.get("/:id", async (req, res) => {
