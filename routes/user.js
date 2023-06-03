@@ -7,19 +7,6 @@ router.get("/", (req, res) => {
   res.send('Base user route')
 })
 
-router.post("/login", async (req, res) => {
-  const { email, password } = req.body
-
-  if (!email || !password) return res.status(400).send('Wrong credentials')
-
-  const user = await User.findOne({ where: { email, password } })
-
-  if (!user) return res.status(400).send("Wrong credentials")
-  if (user.status !== 'VERIFIED') return res.status(400).send("User not yet approved")
-
-  res.send(user)
-})
-
 router.post("/signup", async (req, res) => {
   const { name, email, password } = req.body
 
