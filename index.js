@@ -14,7 +14,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use('/login', login)
+app.use('/', login)
 app.use('/user', user)
 app.use('/admin', admin)
 
