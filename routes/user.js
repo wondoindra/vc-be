@@ -13,7 +13,6 @@ router.post("/signup", async (req, res) => {
   if (!email || !password || !name) return res.status(400).send('Missing required fields')
 
   const existingUser = await User.findOne({ where: { email } })
-  console.log(existingUser)
   if (existingUser) return res.status(400).send('Email used has been registered')
 
   const data = {
@@ -21,8 +20,6 @@ router.post("/signup", async (req, res) => {
     email,
     password,
     status: 'PENDING',
-    url: '',
-    sessionId: '',
   }
 
   const user = await User.create(data)
