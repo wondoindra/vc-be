@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const user = require('./routes/user')
 const admin = require('./routes/admin')
+const login = require('./routes/login')
 
 const PORT = process.env.PORT || 8080;
 
@@ -13,6 +14,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.use('/login', login)
 app.use('/user', user)
 app.use('/admin', admin)
 
