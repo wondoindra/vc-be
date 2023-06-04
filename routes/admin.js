@@ -20,6 +20,24 @@ router.post("/login", async (req, res) => {
   res.send(admin)
 })
 
+router.post("/signup", async (req, res) => {
+  const { name, email, password } = req.body
+
+  if (!email || !password || !name) return res.status(400).send('Missing required fields')
+
+  const existingAdmin = await Admin.findOne({ where: { email } })
+  if (existingAdmin) return res.status(400).send('Email used has been registered')
+
+  const data = {
+    name,
+    email,
+    password,
+  }
+
+  const admin = await Admin.create(data)
+  res.send(admin)
+})
+
 router.get("/users", async (req, res) => {
   const users = await User.findAll({})
 
