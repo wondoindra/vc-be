@@ -8,8 +8,6 @@ User.init({
   email: DataTypes.STRING,
   password: DataTypes.STRING,
   status: DataTypes.STRING,
-  url: DataTypes.STRING,
-  sessionId: DataTypes.STRING,
 }, {
   sequelize,
   modelName: 'User',
